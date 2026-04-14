@@ -1,0 +1,262 @@
+.multi-select-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+
+    isolation: isolate;
+
+    @include breakpoint(msmall down) {
+        padding-inline: 6.25%;
+    }
+
+    @include breakpoint(medium up) {
+        margin-bottom: clamp(rem-calc(35),1.823vw,1.823vw);
+    }
+
+
+    @extend .cs-radio-checkbox;
+      
+    // input[type="radio"]:focus {
+    //     // outline: max(2px, 0.15em) solid currentColor;
+    //     // outline-offset: max(2px, 0.15em);
+    // }
+}
+
+.multi-select-menu {
+    left: 0;
+    z-index: 0;
+    // float: left;
+    overflow: unset !important;
+    min-width: 100%;
+    // margin: 1em 0;
+    // border: 1px solid #aaa;
+    // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: none;
+
+    // padding-top: rem-calc(25);
+
+    @include breakpoint(msmall down) {
+        position: relative;
+        top: 0;
+        min-height: rem-calc(33);
+        // padding-top: rem-calc(30);
+        // padding-bottom: rem-calc(50);
+    }
+
+    @include breakpoint(medium up) {
+        top: 100%;
+        position: absolute;
+        min-height: clamp(rem-calc(42),2.188vw,2.188vw);
+    }
+}
+
+.multi-select-menuitems {
+    padding-top: clamp(rem-calc(30),1.563vw,1.563vw);
+    padding-bottom: clamp(rem-calc(50),2.604vw,2.604vw);
+
+    @include breakpoint(medium up) {
+        max-height: rem-calc(270);
+        margin-block: rem-calc(10);
+        overflow-y: scroll;
+
+        // &::-webkit-scrollbar {
+        //     display: none;
+        // }
+        &::-webkit-scrollbar {
+            width: rem-calc(2);
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: rgba($white, .75);
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb,
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgba($primary-color, .75);
+        }
+    }
+
+    &--hidescroll {
+        @include breakpoint(medium up) {
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+}
+
+.multi-select-menuitem {
+    display: flex;
+    align-items: center;
+    font-size: clamp(rem-calc(16), 1.042vw, 1.042vw);
+    color: $primary-color;
+    // padding: 0.6em 1em 0.6em 30px;
+    white-space: nowrap;
+
+    margin-bottom: clamp(rem-calc(15),0.781vw,0.781vw);
+}
+
+.multi-select-menuitem--titled:before {
+    display: block;
+    font-weight: bold;
+    content: attr(data-group-title);
+    margin: 0 0 0.25em -20px;
+}
+
+.multi-select-menuitem--titledsr:before {
+    display: block;
+    font-weight: bold;
+    content: attr(data-group-title);
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.multi-select-menuitem + .multi-select-menuitem {
+    padding-top: 0;
+}
+
+.multi-select-presets {
+    border-bottom: 1px solid #ddd;
+}
+
+// .multi-select-menuitem input {
+//     // position: absolute;
+//     // margin-top: 0.25em;
+//     // margin-left: -20px;
+// }
+
+.multi-select-button {
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+    font-size: 0.875em;
+    // padding: 0.2em 0.6em;
+    // max-width: 16em;
+    white-space: nowrap;
+    overflow: hidden;
+    color: $primary-color;
+    text-overflow: ellipsis;
+    vertical-align: -0.5em;
+    // background-color: #fff;
+    // border: 1px solid #aaa;
+    // border-radius: 4px;
+    // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    cursor: default;
+
+    width: 100%;
+
+    // @include flex;
+    // justify-content: space-between;
+    // align-items: center;
+
+    @include breakpoint(msmall down) {
+        min-height: rem-calc(33);
+        padding: rem-calc(30 0 20);
+        font-size: rem-calc(16);
+    }
+
+    @include breakpoint(medium up) {
+        min-height: clamp(rem-calc(42),2.188vw,2.188vw);
+        font-size: clamp(rem-calc(20),1.042vw,1.042vw);
+
+        // margin-bottom: clamp(rem-calc(50),2.604vw,2.604vw);
+        padding-top: clamp(rem-calc(20),1.042vw,1.042vw);
+        padding-bottom: clamp(rem-calc(25),1.302vw,1.302vw);
+        padding-right: clamp(rem-calc(35), 2.865vw, 2.865vw);
+    }
+
+    &:after {
+        content: "";
+        width: clamp(rem-calc(34),2.135vw,2.135vw);
+        height: clamp(rem-calc(34),2.135vw,2.135vw);
+        display: inline-block;
+        background: url(../images/icon-dropdown.svg) no-repeat center center;
+        transform: rotate(180deg);
+        background-size: cover;
+        // transition: all .25s ease-in;
+        // width: 0;
+        // height: 0;
+        // border-style: solid;
+        // border-width: 0.4em 0.4em 0 0.4em;
+        // border-color: #999 transparent transparent transparent;
+        // margin-left: 0.4em;
+        // vertical-align: 0.1em;
+        position: absolute;
+        right: 0;
+
+        @include breakpoint(medium down) {
+            top: rem-calc(22);
+        }
+
+        @include breakpoint(large up) {
+            top: clamp(rem-calc(15), 0.781vw, 0.781vw);
+        }
+    }
+
+    &:before {
+        content: '';
+        width: 100%;
+        height: rem-calc(1);
+        background-color: $primary-color;
+        position: absolute;
+        left: 0;
+        z-index: 0;
+        bottom: 0;
+    }
+}
+
+
+.multi-select-container--open,
+.multi-select-container--open .multi-select-menu {
+    background-color: $rose;
+    z-index: 2;
+
+    &:before {
+        content: '';
+        width: 110%;
+        height: 100%;
+        position: absolute;
+        left: -5%;
+        z-index: -1;
+        background-color: $rose;
+
+        /*
+        @include breakpoint(medium up) {
+            width: 110%;
+        }
+        */
+    }
+}
+
+.multi-select-container--open .multi-select-menu {
+    display: block;
+    max-height: none !important;
+}
+
+.multi-select-container--open .multi-select-button:after {
+    transform: rotate(0deg);
+    background-color: $rose;
+    // border-width: 0 0.4em 0.4em 0.4em;
+    // border-color: transparent transparent #999 transparent;
+}
+.multi-select-container--open .multi-select-button:before {
+    
+}
+
+.multi-select-container--positioned .multi-select-menu {
+    /* Avoid border/padding on menu messing with JavaScript width calculation */
+    box-sizing: border-box;
+}
+
+.multi-select-container--positioned .multi-select-menu label {
+    /* Allow labels to line wrap when menu is artificially narrowed */
+    white-space: normal;
+}

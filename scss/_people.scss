@@ -1,0 +1,407 @@
+.ppl {
+    &-slider {
+        position: relative;
+        isolation: isolate;
+        z-index: 0;
+        margin-top: rem-calc(54);
+
+        &__overlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            mix-blend-mode: multiply;
+            background: $primary-color;
+            background: linear-gradient(90deg, rgba($primary-color,1) 0%, rgba($primary-color,0) 100%);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            min-height: clamp(rem-calc(192),10vw,10vw);
+            object-fit: cover;
+        }
+
+        &__info {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            font-family: $dm;
+            @extend .clr-white-txt;
+        }
+
+        &__name {
+            font-size: clamp(rem-calc(25), 1.563vw, 1.563vw) !important;
+            margin-bottom: rem-calc(10);
+        }
+
+        &__post {
+            font-size: clamp(rem-calc(20), 1.042vw, 1.042vw);
+        }
+    }
+
+    &-form {
+        margin-top: clamp(rem-calc(40), 2.083vw, 2.083vw);
+    }
+
+    &-list {
+        position: relative;
+        isolation: isolate;
+        // background-color: $primary-color;
+
+        /*&:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            
+            height: 100%;
+            background-color: $primary-color;
+            z-index: -1;
+
+            @include breakpoint(large down) {
+                width: 100%;
+            }
+
+            @include breakpoint(xlarge up) {
+                width: 75%;
+                // background: linear-gradient(90deg, rgba($primary-color,1) 80%, rgba($primary-color,0) 100%);
+            }
+
+            @include breakpoint(xxlarge up) {
+                width: 80%;
+                // background: linear-gradient(90deg, rgba($primary-color,1) 80%, rgba($primary-color,0) 100%);
+            }
+        }*/
+
+
+        &:nth-child(odd) {
+            background-color: $white;
+            // @include breakpoint(xlarge up) {
+            //     & > .grid-x {
+            //         justify-content: flex-end;
+            //         margin-right: 6.25%;
+
+            //         .xlarge-8 {
+            //             width: calc(56.25% - 1.3125rem);
+            //             margin-left: 0;
+            //         }
+            //     }
+            // }
+
+            h3,h4,li, a {
+                color: $primary-color !important;
+            }
+
+            a {
+                position: relative;
+                z-index: 0;
+
+                &:before {
+                    content: '';
+                    height: clamp(rem-calc(30), 1.979vw, 1.979vw);
+                    width: clamp(rem-calc(30), 1.979vw, 1.979vw);
+                    background-color: $primary-color;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    z-index: -1;
+                    border-radius: 100%;
+                }
+
+                & > img {
+                    // border-radius: 100%;
+                    filter: grayscale(1) invert(1) brightness(3);
+                    // background-color: $primary-color;
+                }
+            }
+
+            &:before {
+                right: 0;
+                left: auto;
+                background-color: $white;
+    
+                @include breakpoint(large up) {
+                    background: linear-gradient(-90deg, rgba($white,1) 80%, rgba($white,0) 100%);
+                    width: 74%;
+                }
+            }
+
+            // ul li:last-child {
+            //     img {
+            //         visibility: hidden;
+            //     }
+            // }
+
+            .ppl-list__fig {
+                right: 0;
+                left: auto;
+
+                @include breakpoint(large up) {
+                    right: calc(6.25% * 5);
+                }
+            }
+            .ppl-list__content {
+                @include breakpoint(large up) {
+                    margin-left: auto;
+                    margin-right: 0;
+                    padding-right: clamp(rem-calc(50), 2.604vw, 2.604vw);
+                }
+            }
+            .ppl-list__wrap {
+                @include breakpoint(large up) {
+                    right: -100%;
+                }
+
+                &--open {
+                    @include breakpoint(large up) {
+                        right: 0%;
+                    }
+                }
+            }
+            .ppl-list__info:before {
+                @include breakpoint(large up) {
+                    right: 0;
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            background-color: $primary-color;
+
+            h3,h4,li, a, p {
+                color: $white !important;
+            }
+
+            a > img {
+                background-color: $white;
+                border-radius: 100%;
+            }
+
+            .ppl-list__content {
+                @include breakpoint(large up) {
+                    padding-left: clamp(rem-calc(50), 2.604vw, 2.604vw);
+                }
+            }
+
+            .ppl-list__wrap {
+                @include breakpoint(large up) {
+                    left: -100%;
+                }
+
+                &--open {
+                    @include breakpoint(large up) {
+                        left: 0%;
+                    }
+                }
+            }
+
+            .ppl-list__info:before {
+                @include breakpoint(large up) {
+                    left: 0;
+                }
+            }
+        }
+
+        h3 {
+            margin-bottom: clamp(rem-calc(20), 1.042vw, 1.042vw);
+        }
+        h4 {
+            margin-bottom: clamp(rem-calc(30), 1.563vw, 1.563vw);
+        }
+
+        .cell {
+            p {
+                margin-top: 0;
+            }
+        }
+
+        ul {
+            @include breakpoint(large down) {
+                margin-bottom: clamp(rem-calc(30), 1.563vw, 1.563vw);
+            }
+
+            li {
+                @include flex;
+                flex-flow: row;
+                margin-bottom: clamp(rem-calc(15), 0.781vw, 0.781vw);
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                a  {
+                    font-weight: 500;
+
+                    img {
+                        margin-right: clamp(rem-calc(10), 0.521vw, 0.521vw);
+                        width: clamp(rem-calc(30), 1.979vw, 1.979vw);
+                        height: clamp(rem-calc(30), 1.979vw, 1.979vw);
+                    }
+                }
+            }
+        }
+
+        &__fig {
+            
+            @include breakpoint(medium down) {
+                margin-top: rem-calc(30);
+                margin-bottom: rem-calc(30);
+                display: block;
+
+                img {
+                    min-height: rem-calc(200);
+                    max-width: none;
+                    width: 100%;
+                    // position: relative;
+                    // left: -6.25%;
+                    // width: 100vw;
+                }
+            }
+
+            @include breakpoint(large up) {
+                position: absolute;
+                left: 6.25%;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                text-align: right;
+                z-index: -1;
+            }
+            @include breakpoint(large only) {
+                left: 5.25%;
+            }
+
+
+            img {
+                height: auto;
+                width: 100%;
+                object-fit: cover;
+                object-position: top;
+
+                @include breakpoint(large up) {
+                    height: 100%;
+                    max-width: calc(6.25% * 10);
+                }
+                
+                @include breakpoint(xlarge up) {
+                    max-width: calc(6.25% * 11);
+                }
+            }
+        }
+
+        &__info {
+            overflow: hidden;
+            position: relative;
+
+            @include breakpoint(xxlarge up) {
+                min-height: clamp(rem-calc(450), 37.500vw, 37.500vw);
+            }
+            
+            img {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: -1;
+                object-fit: cover;
+                object-position: top;
+            }
+
+            &:before {
+                @include breakpoint(large up) {
+                    content: "";
+                    width: 0%;
+                    height: 100%;
+                    opacity: 0;
+                    position: absolute;
+                    top: 0;
+                    z-index: 0;
+                    background-color: rgba($primary-color, .5);
+                    transition: all .25s ease-in;
+                }
+            }
+
+            &--open:before {
+                @include breakpoint(large up) {
+                    width: 100%;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &__col {
+            @include breakpoint(large up) {
+                padding-top: clamp(rem-calc(20), 6.771vw, 6.771vw);
+                padding-bottom: clamp(rem-calc(20), 6.771vw, 6.771vw);
+            }
+        }
+
+        &__content {
+            padding-bottom: clamp(rem-calc(20), 5.208vw, 5.208vw);
+            overflow: hidden;
+
+            @include breakpoint(large up) {
+                max-width: 70%;
+                padding-top: clamp(rem-calc(20), 6.771vw, 6.771vw);
+            }
+
+            // @include breakpoint(xlarge up) {
+            //     max-width: 80%;
+            // }
+            
+            @include breakpoint(xxlarge up) {
+                max-width: 50%;
+            }
+
+            p {
+                @include breakpoint(large up) {
+                    color: $white !important;
+                }
+            }
+        }
+
+        &__wrap {
+            opacity: 0;
+            transition: all .25s ease-in;
+            position: relative;
+
+            @include breakpoint(medium down) {
+                height: 0;
+            }
+
+            // @include breakpoint(large up) {
+            //     width: 0;
+            // }
+            
+            &--open {
+                opacity: 1;
+                overflow: visible;
+
+                @include breakpoint(medium down) {
+                    height: 100%;
+                }
+            }
+        }
+
+    }
+
+    &-fig {
+        position: relative;
+        isolation: isolate;
+        
+        &__img {
+            opacity: 0;
+        }
+
+        &__anim {
+            position: absolute;
+        }
+    }
+}

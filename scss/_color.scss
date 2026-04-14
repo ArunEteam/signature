@@ -1,0 +1,227 @@
+.clr {
+    &-navy {
+        background-color: $primary-color;
+    
+        &-txt {
+            color: $primary-color;
+        }
+
+        &-hover {
+            &:hover,
+            &:focus {
+                background-color: $primary-color;
+                color: $white;
+                border-color: $primary-color;
+            }
+        }
+    }
+    &-lake {
+        background-color: get-color(secondary);
+
+        &-lt {
+            @include breakpoint(msmall down) {
+                background-color: $lakelt;
+            }
+
+            &-bg {
+                background-color: $lakelt;
+            }
+        }
+
+        &-bglt {
+            background-color: rgba(get-color(secondary), .2);
+
+            &-hover {
+                position: relative;
+                isolation: isolate;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    opacity: 0;
+                    z-index: -1;
+                    transition: all .4s ease-in-out;
+                    background-color: $lakelt;
+
+                    @include breakpoint(msmall down) {
+                        height: 100%;
+                        width: 0%;
+                    }
+                    
+                    @include breakpoint(medium up) {
+                        height: 0%;
+                        width: 100%;
+                    }
+                }
+
+                &:hover,
+                &:focus {
+                    // background-color: rgba($rose, .4);
+
+                    @include breakpoint(medium up) {
+                        &:before {
+                            height: 100%;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    
+        &-txt {
+            color: get-color(secondary);
+        }
+        
+        &-hover {
+            &:hover,
+            &:focus {
+                background-color: get-color(secondary);
+                color: $primary-color;
+                border-color: get-color(secondary);
+            }
+        }
+    }
+    &-rose {
+        background-color: $rose;
+    
+        &-txt {
+            color: $rose;
+        }
+        &-lt {
+            @include breakpoint(msmall down) {
+                background-color: $roselt;
+            }
+        }
+
+        &-bglt {
+            background-color: rgba($rose, .4);
+
+            &-hover {
+                position: relative;
+                isolation: isolate;
+
+                &:before {
+                    transition: all .35s ease-in-out;
+                    content: '';
+                    
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    z-index: -1;
+
+                    @include breakpoint(msmall down) {
+                        background-color: $roselt;
+                        height: 100%;
+                        width: 0%;
+                    }
+                    
+                    @include breakpoint(medium up) {
+                        background-color: rgba($rose, .4);
+                        height: 0%;
+                        width: 100%;
+                    }
+                }
+
+                &:hover,
+                &:focus {
+                    // background-color: rgba($rose, .4);
+                    @include breakpoint(medium up) {
+                        
+                        &:before {
+                            height: 100%;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-hover {
+            &:hover,
+            &:focus {
+                background-color: $rose;
+                color: $primary-color;
+                border-color: $rose;
+            }
+        }
+    }
+    
+    &-leaf {
+        background-color: $leaf;
+
+        &-bglt {
+            background-color: rgba($leaf, .4);
+        }
+
+        &-bglt2 {
+            background-color: rgba($leaf, .2);
+        }
+    
+        &-txt {
+            color: $leaf;
+        }
+        &-hover {
+            &:hover,
+            &:focus {
+                background-color: $leaf;
+                color: $primary-color;
+                border-color: $leaf;
+            }
+        }
+    }
+    &-sand {
+        background-color: $sand;
+
+        &-bglt {
+            background-color: rgba($sand, .4);
+        }
+
+        &-bglt2 {
+            background-color: rgba($sand, .2);
+        }
+    
+        &-txt {
+            color: $sand;
+        }
+        &-hover {
+            &:hover,
+            &:focus {
+                background-color: $sand;
+                color: $primary-color;
+                border-color: $white;
+            }
+        }
+
+        &-lt {
+            background-color: $sandlt;
+        }
+    }
+    &-white {
+        background-color: $white;
+    
+        &-txt {
+            color: $white !important;
+
+            a {
+                @extend .clr-white-txt;
+            }
+        }
+
+        &-hover {
+            &:hover,
+            &:focus {
+                background-color: $white;
+                color: $primary-color;
+                border-color: $white;
+            }
+        }
+    }
+
+    &--none {
+        background-color: none;
+    }
+}
+

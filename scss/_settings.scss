@@ -58,38 +58,45 @@
 //  53. Title Bar
 //  54. Tooltip
 //  55. Top Bar
-//  57. Xy Grid
+//  56. Xy Grid
 
-@use "sass:color";
+
 @import 'util/util';
 
 // 1. Global
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1200);
+$global-width: rem-calc(1920);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  "primary": #1779ba,
-  "secondary": #767676,
-  "success": #3adb76,
-  "warning": #ffae00,
-  "alert": #cc4b37,
+  primary: #102C43,
+  secondary: #719BA9,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
 );
+$rose: #EBBEAF;
+$roselt: #FEE2DC;
+$lakelt: #C8DBE2;
+$leaf: #9CA79F;
+$sand: #E4E1D1;
+$sandlt: #EDECE1;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
-$body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-color: $primary-color;
+$dm: 'DM Serif Display', serif;
+$body-font-family: 'Roboto', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-safe-padding: false;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-position: 1rem;
-$global-weight-normal: normal;
+$global-weight-normal: 300;
 $global-weight-bold: bold;
 $global-radius: 0;
 $global-menu-padding: 0.7rem 1rem;
@@ -107,47 +114,65 @@ $print-hrefs: true;
 // 2. Breakpoints
 // --------------
 
-$-zf-size: null;
 $breakpoints: (
-  "small": 0,
-  "medium": 640px,
-  "large": 1024px,
-  "xlarge": 1200px,
-  "xxlarge": 1440px,
+  small: 0,
+  msmall: 480px,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1280px,
+  xxlarge: 1440px,
 );
 $breakpoints-hidpi: (
-  "hidpi-1": 1,
-  "hidpi-1-5": 1.5,
-  "hidpi-2": 2,
-  "retina": 2,
-  "hidpi-3": 3
+  hidpi-1: 1,
+  hidpi-1-5: 1.5,
+  hidpi-2: 2,
+  retina: 2,
+  hidpi-3: 3
 );
 $print-breakpoint: large;
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (small msmall medium large xlarge xxlarge);
 
 // 3. The Grid
 // -----------
 
 $grid-row-width: $global-width;
-$grid-column-count: 12;
+$grid-column-count: 16;
 $grid-column-gutter: (
-  small: 20px,
-  medium: 30px,
+  small: 2.5px,
+  medium: 6px,
+  xlarge: 10.5px,
+  xxlarge: 10.5px,
 );
 $grid-column-align-edge: true;
 $grid-column-alias: 'columns';
-$block-grid-max: 8;
+$block-grid-max: 16;
+
+// 56. Xy Grid
+// -----------
+
+$xy-grid: true;
+$grid-container: $global-width;
+$grid-columns: 16;
+$grid-margin-gutters: (
+  small: 5px,
+  medium: 12px,
+  xlarge: 21px,
+);
+$grid-padding-gutters: $grid-margin-gutters;
+$grid-container-padding: $grid-padding-gutters;
+$grid-container-max: $global-width;
+$xy-block-grid-max: 16;
 
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
+$header-font-family: $dm;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
-$header-color: inherit;
-$header-lineheight: 1.4;
-$header-margin-bottom: 0.5rem;
+$header-color: $primary-color;
+$header-lineheight: 1;
+$header-margin-bottom: 0rem;
 $header-styles: (
   small: (
     'h1': ('font-size': 24),
@@ -164,7 +189,7 @@ $header-styles: (
     'h4': ('font-size': 25),
     'h5': ('font-size': 20),
     'h6': ('font-size': 16),
-  ),
+  )
 );
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
@@ -173,8 +198,8 @@ $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
 $enable-code-inline: true;
-$anchor-color: $primary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-color: $white;
+$anchor-color-hover: $primary-color;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -238,15 +263,15 @@ $input-error-font-weight: $global-weight-bold;
 // ------------
 
 $accordion-background: $white;
-$accordion-plusminus: true;
+$accordion-plusminus: false;
 $accordion-plus-content: '\002B';
 $accordion-minus-content: '\2013';
 $accordion-title-font-size: rem-calc(12);
 $accordion-item-color: $primary-color;
-$accordion-item-background-hover: $light-gray;
-$accordion-item-padding: 1.25rem 1rem;
-$accordion-content-background: $white;
-$accordion-content-border: 1px solid $light-gray;
+$accordion-item-background-hover: none;
+$accordion-item-padding: 0;
+$accordion-content-background: none;
+$accordion-content-border: none;
 $accordion-content-color: $body-font-color;
 $accordion-content-padding: 1rem;
 
@@ -256,7 +281,7 @@ $accordion-content-padding: 1rem;
 $accordionmenu-padding: $global-menu-padding;
 $accordionmenu-nested-margin: $global-menu-nested-margin;
 $accordionmenu-submenu-padding: $accordionmenu-padding;
-$accordionmenu-arrows: true;
+$accordionmenu-arrows: false;
 $accordionmenu-arrow-color: $primary-color;
 $accordionmenu-item-background: null;
 $accordionmenu-border: null;
@@ -296,16 +321,16 @@ $breadcrumbs-item-separator-color: $medium-gray;
 // ----------
 
 $button-font-family: inherit;
-$button-font-weight: null;
+$button-font-weight: 400;
 $button-padding: 0.85em 1em;
-$button-margin: 0 0 $global-margin 0;
+$button-margin: 0;
 $button-fill: solid;
-$button-background: $primary-color;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
-$button-color: $white;
+$button-background: rgba($primary-color, 0);
+$button-background-hover: $primary-color;
+$button-color: $primary-color;
 $button-color-alt: $black;
-$button-radius: $global-radius;
-$button-border: 1px solid transparent;
+$button-radius: clamp(rem-calc(50), 5.208vw, 5.208vw);
+$button-border: 0 solid $primary-color;
 $button-hollow-border-width: 1px;
 $button-sizes: (
   tiny: 0.6rem,
@@ -323,7 +348,7 @@ $button-responsive-expanded: false;
 // 12. Button Group
 // ----------------
 
-$buttongroup-margin: 1rem;
+$buttongroup-margin: 0;
 $buttongroup-spacing: 1px;
 $buttongroup-child-selector: '.button';
 $buttongroup-expand-max: 6;
@@ -377,8 +402,8 @@ $closebutton-size: (
   medium: 2em,
 );
 $closebutton-lineheight: 1;
-$closebutton-color: $dark-gray;
-$closebutton-color-hover: $black;
+$closebutton-color: $white;
+$closebutton-color-hover: $white;
 
 // 16. Drilldown
 // -------------
@@ -411,17 +436,17 @@ $dropdown-sizes: (
 // 18. Dropdown Menu
 // -----------------
 
-$dropdownmenu-arrows: true;
+$dropdownmenu-arrows: false;
 $dropdownmenu-arrow-color: $anchor-color;
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-arrow-padding: 1.5rem;
-$dropdownmenu-min-width: 200px;
+$dropdownmenu-min-width: auto;
 $dropdownmenu-background: null;
-$dropdownmenu-submenu-background: $white;
+$dropdownmenu-submenu-background: #455567;
 $dropdownmenu-padding: $global-menu-padding;
 $dropdownmenu-nested-margin: 0;
 $dropdownmenu-submenu-padding: $dropdownmenu-padding;
-$dropdownmenu-border: 1px solid $medium-gray;
+$dropdownmenu-border: 0 solid $medium-gray;
 $dropdown-menu-item-color-active: get-color(primary);
 $dropdown-menu-item-background-active: transparent;
 
@@ -450,23 +475,23 @@ $form-label-color: $black;
 $form-label-font-size: rem-calc(14);
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
-$select-background: $white;
+$select-background: none;
 $select-triangle-color: $dark-gray;
 $select-radius: $global-radius;
-$input-color: $black;
-$input-placeholder-color: $medium-gray;
+$input-color: $white;
+$input-placeholder-color: rgba($white, .5);
 $input-font-family: inherit;
 $input-font-size: rem-calc(16);
 $input-font-weight: $global-weight-normal;
 $input-line-height: $global-lineheight;
-$input-background: $white;
-$input-background-focus: $white;
+$input-background: none;
+$input-background-focus: none;
 $input-background-disabled: $light-gray;
-$input-border: 1px solid $medium-gray;
-$input-border-focus: 1px solid $dark-gray;
+$input-border: 0px solid $medium-gray;
+$input-border-focus: 0px solid $dark-gray;
 $input-padding: $form-spacing * 0.5;
-$input-shadow: inset 0 1px 2px rgba($black, 0.1);
-$input-shadow-focus: 0 0 5px $medium-gray;
+$input-shadow: inset 0 1px 2px rgba($black, 0);
+$input-shadow-focus: 0 0 0px $medium-gray;
 $input-cursor-disabled: not-allowed;
 $input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 $input-number-spinners: true;
@@ -496,7 +521,7 @@ $mediaobject-image-width-stacked: 100%;
 
 $menu-margin: 0;
 $menu-nested-margin: $global-menu-nested-margin;
-$menu-items-padding: $global-menu-padding;
+$menu-items-padding: 0;//$global-menu-padding
 $menu-simple-margin: 1rem;
 $menu-item-color-active: $white;
 $menu-item-color-alt-active: $black;
@@ -520,23 +545,23 @@ $meter-fill-bad: $alert-color;
 // --------------
 
 $offcanvas-sizes: (
-  small: 250px,
+  small: 100%,
 );
 $offcanvas-vertical-sizes: (
-  small: 250px,
+  small: 100vh,
 );
-$offcanvas-background: $light-gray;
-$offcanvas-shadow: 0 0 10px rgba($black, 0.7);
+$offcanvas-background: none;
+$offcanvas-shadow: none;
 $offcanvas-inner-shadow-size: 20px;
-$offcanvas-inner-shadow-color: rgba($black, 0.25);
-$offcanvas-overlay-zindex: 11;
-$offcanvas-push-zindex: 12;
-$offcanvas-overlap-zindex: 13;
-$offcanvas-reveal-zindex: 12;
-$offcanvas-transition-length: 0.5s;
-$offcanvas-transition-timing: ease;
-$offcanvas-fixed-reveal: true;
-$offcanvas-exit-background: rgba($white, 0.25);
+$offcanvas-inner-shadow-color: none;
+$offcanvas-overlay-zindex: 2;
+$offcanvas-push-zindex: 1;
+$offcanvas-overlap-zindex: 1;
+$offcanvas-reveal-zindex: 1;
+$offcanvas-transition-length: 0.25s;
+$offcanvas-transition-timing: ease-in;
+$offcanvas-fixed-reveal: false;
+$offcanvas-exit-background: rgba($white, 0);
 $maincontent-class: 'off-canvas-content';
 
 // 26. Orbit
@@ -759,10 +784,10 @@ $reveal-background: $white;
 $reveal-width: 600px;
 $reveal-max-width: $global-width;
 $reveal-padding: $global-padding;
-$reveal-border: 1px solid $medium-gray;
+$reveal-border: 0px solid $medium-gray;
 $reveal-radius: $global-radius;
-$reveal-zindex: 1005;
-$reveal-overlay-background: rgba($black, 0.45);
+$reveal-zindex: 4;
+$reveal-overlay-background: rgba($primary-color, 0.75);
 
 // 48. Slider
 // ----------
@@ -782,9 +807,7 @@ $slider-radius: $global-radius;
 // ----------
 
 $switch-background: $medium-gray;
-$switch-background-focus: scale-color($switch-background, $lightness: -10%);
 $switch-background-active: $primary-color;
-$switch-background-active-focus: scale-color($switch-background-active, $lightness: -15%);
 $switch-height: 2rem;
 $switch-height-tiny: 1.5rem;
 $switch-height-small: 1.75rem;
@@ -806,15 +829,15 @@ $table-color-scale: 5%;
 $table-border: 1px solid smart-scale($table-background, $table-color-scale);
 $table-padding: rem-calc(8 10 10);
 $table-hover-scale: 2%;
-$table-row-hover: color.adjust($table-background, $lightness: -$table-hover-scale);
-$table-row-stripe-hover: color.adjust($table-background, $lightness: -($table-color-scale + $table-hover-scale));
+$table-row-hover: darken($table-background, $table-hover-scale);
+$table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
 $table-is-striped: true;
 $table-striped-background: smart-scale($table-background, $table-color-scale);
 $table-stripe: even;
 $table-head-background: smart-scale($table-background, $table-color-scale * 0.5);
-$table-head-row-hover: color.adjust($table-head-background, $lightness: -$table-hover-scale);
+$table-head-row-hover: darken($table-head-background, $table-hover-scale);
 $table-foot-background: smart-scale($table-background, $table-color-scale);
-$table-foot-row-hover: color.adjust($table-foot-background, $lightness: -$table-hover-scale);
+$table-foot-row-hover: darken($table-foot-background, $table-hover-scale);
 $table-head-font-color: $body-font-color;
 $table-foot-font-color: $body-font-color;
 $show-header-for-stacked: false;
@@ -826,15 +849,15 @@ $table-stack-breakpoint: medium;
 $tab-margin: 0;
 $tab-background: $white;
 $tab-color: $primary-color;
-$tab-background-active: $light-gray;
+$tab-background-active: $white;
 $tab-active-color: $primary-color;
-$tab-item-font-size: rem-calc(12);
-$tab-item-background-hover: $white;
-$tab-item-padding: 1.25rem 1.5rem;
+$tab-item-font-size: rem-calc(16);
+$tab-item-background-hover: none;
+$tab-item-padding: 0;//1.25rem 1.5rem
 $tab-content-background: $white;
-$tab-content-border: $light-gray;
+$tab-content-border: none;
 $tab-content-color: $body-font-color;
-$tab-content-padding: 1rem;
+$tab-content-padding: 0;
 
 // 52. Thumbnail
 // -------------
@@ -882,18 +905,4 @@ $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
 
-// 57. Xy Grid
-// -----------
-
-$xy-grid: true;
-$grid-container: $global-width;
-$grid-columns: 12;
-$grid-margin-gutters: (
-  "small": 20px,
-  "medium": 30px
-);
-$grid-padding-gutters: $grid-margin-gutters;
-$grid-container-padding: $grid-padding-gutters;
-$grid-container-max: $global-width;
-$xy-block-grid-max: 8;
 

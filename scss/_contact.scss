@@ -1,0 +1,225 @@
+.contact {
+    &-wrap {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+
+        @include breakpoint(msmall down) {
+            // height: calc(100% - 91px);
+            height: 100vh;
+            background-color: $primary-color;
+            padding-top: rem-calc(50);
+
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        @include breakpoint(medium up) {
+            bottom: 0;
+            height: auto;
+        }
+
+        @media screen and (min-height: 320px) and (max-height: 639px) {
+            top: 0;
+        }
+
+        &--grid {
+            height: 100%;
+        }
+    }
+    
+    &--form {
+        min-height: rem-calc(307);
+        
+        .ginput_container_consent .gform-field-label {
+            color: $white !important;
+            a {
+                color: $white !important;
+            }
+        }
+    }
+
+    &-content {
+        position: relative;
+        isolation: isolate;
+        height: 100%;
+        
+        // @include flex;
+        // flex-flow: column;
+        // @include flex-align(center, left);
+
+        @include breakpoint(medium up) {
+
+            &:before {
+                content: '';
+                width: 150%;
+                height: 100%;
+                background-color: $primary-color;
+                z-index: -1;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+
+        &__cell {
+
+            @media screen and (min-height: 320px) and (max-height: 640px) {
+                // height: 100%;
+                max-height: 100vh;
+                overflow-y: scroll;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            @include breakpoint(msmall down) {
+                padding-block: rem-calc(20 35);
+            }
+
+            @include breakpoint(medium up) {
+                padding-block: clamp(rem-calc(55), 4.688vw, 4.6vw);
+            }
+
+
+            // @include breakpoint(msmall down) {
+            //     // height: 100%;
+            //     max-height: calc(100vh - 120px);
+            //     overflow-y: scroll;
+
+            //     &::-webkit-scrollbar {
+            //         display: none;
+            //     }
+            // }
+        }
+    }
+
+    &-form,
+    &-social {
+        @include breakpoint(msmall down) {
+            padding-left: 6.25%;
+            padding-right: 6.25%;
+        }
+    }
+
+    &-social {
+        min-width: 12.5%;
+
+        @include breakpoint(msmall down) {
+            padding-top: clamp(rem-calc(25), 1.302vw, 1.302vw);
+            padding-bottom: clamp(rem-calc(25), 1.302vw, 1.302vw);
+        }
+
+        @include breakpoint(medium up) {
+            @include flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 2.8vw;
+        }
+
+        li {
+            a {
+                @include breakpoint(msmall down) {
+                    margin-bottom: 0 !important;
+                }
+
+                @include breakpoint(medium up) {
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+
+                @include breakpoint(large up) {
+                    max-width: clamp(rem-calc(59), 3.073vw, 3.073vw);
+                    
+                    img {
+                        max-height: clamp(rem-calc(59), 3.073vw, 3.073vw);
+                    }
+                }
+
+                @media screen and (min-height: 320px) and (max-height: 1024px) {
+                    max-width: clamp(rem-calc(32), 3vw, 2.292vw);
+                    
+                    img {
+                        max-height: clamp(rem-calc(32), 3vw, 2.292vw);;
+                    }
+                }
+            }
+        }
+    }
+
+    &-grid {
+        @include breakpoint(msmall down) {
+            height: 100%;
+        }
+        
+        @include breakpoint(medium up) {
+            justify-content: space-between;
+        }
+    }
+
+    &-info {
+        @extend .clr-white-txt;
+        margin-top: clamp(rem-calc(50), 5.208vw, 5.208vw);
+
+        @include breakpoint(msmall down) {
+            display: none;
+        }
+
+        @include breakpoint(medium up) {
+            text-transform: uppercase;
+            font-size: clamp(rem-calc(14), 0.833vw, 0.833vw);
+        }
+
+        @include breakpoint(xlarge down) {
+            span {
+                display: block;
+            }
+        }
+
+        a {
+            @extend .clr-white-txt;
+
+            &:hover {
+                color: get-color(secondary);
+            }
+        }
+
+        span {
+            @include breakpoint(xlarge down) {
+                display: block;
+            }
+
+            @include breakpoint(xxlarge up) {
+                border-left: rem-calc(1) solid $white;
+                padding-left: rem-calc(10);
+                margin-left: rem-calc(7);
+            }
+        }
+        
+    }
+
+    &-title {
+        font-size: clamp(rem-calc(27),2vw,1.875vw);
+        @extend .clr-white-txt;
+        margin-bottom: clamp(rem-calc(25), 1.563vw, 1.563vw);
+        line-height: 1.4;
+    }
+
+    &-map {
+        min-height: clamp(rem-calc(300), 15.625vw, 15.625vw);
+    }
+
+    &-block {
+        padding-top: clamp(rem-calc(40), 3.646vw, 3.646vw);
+        padding-bottom: clamp(rem-calc(40), 2.083vw, 2.083vw);
+
+        p {
+            margin-bottom: 0 !important;
+        }
+    }
+}

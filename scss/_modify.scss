@@ -1,0 +1,252 @@
+body {
+    color: $primary-color;
+    font-size: clamp(rem-calc(16), 1.1vw, 1.042vw);
+
+    p,
+    ul li {
+        font-size: clamp(rem-calc(16), 1.1vw, 1.042vw);
+        line-height: 1.4;
+        font-weight: 300;
+    }
+}
+
+// headings
+h1 {
+    font-size: clamp(rem-calc(48), 5.208vw, 5.208vw);
+
+    @media only screen and (max-width: 480px) {
+        font-size: rem-calc(34);
+    }
+}
+
+h2,
+.cm-title-h2 {
+    font-size: clamp(rem-calc(36), 3.125vw, 3.125vw);
+}
+
+.cm-title-block-h2 {
+    font-size: clamp(rem-calc(25), 2.500vw, 2.500vw) !important;
+}
+
+.cm-title {
+    font-size: clamp(rem-calc(32), 5.208vw, 5.208vw);
+}
+
+h3,
+.cm-title-h3 {
+    font-size: clamp(rem-calc(20), 1.875vw, 1.875vw);
+}
+
+h4,
+.cm-title-h4 {
+    font-size: clamp(rem-calc(18), 1.354vw, 1.354vw);
+}
+
+// h2,
+// .cm-title {
+//     font-size: clamp(rem-calc(36), 5.208vw, 5.208vw);
+// }
+
+// .cm-title-sm {
+//     font-size: clamp(rem-calc(36), 3.125vw, 3.125vw);
+// }
+
+// h3,
+// .cm-title-h3 {
+//     font-size: clamp(rem-calc(50), 3.5vw, 3.125vw);
+// }
+
+// h4,
+// .cm-title-h4 {
+//     font-size: clamp(rem-calc(26),1.354vw, 1.354vw);
+// }
+
+// h5,
+// .cm-title-h5 {
+//     font-size: clamp(rem-calc(16), 1.5vw, 1.354vw);
+// }
+
+// buttons
+.button {
+    color: $primary-color;
+    background-color: transparent;
+    border: rem-calc(1) solid $primary-color;
+    letter-spacing: rem-calc(2);
+    min-width: clamp(rem-calc(106), 8.698vw, 8.698vw);
+    font-size: clamp(rem-calc(14), 1.1vw, 1.042vw);
+    padding-top: clamp(rem-calc(8), 0.677vw, 0.677vw);
+    padding-bottom: clamp(rem-calc(8), 0.677vw, 0.677vw);
+    text-transform: uppercase;
+    transition: all .25s ease-in;
+    box-sizing: border-box;
+    margin: .2px;
+    
+    &:focus {
+        color: $primary-color;
+        background-color: transparent;
+    }
+
+    &:hover {
+        background-color: $primary-color;
+        color: $white;
+        border-color: $primary-color;
+        outline: none;
+    }
+
+    &-bg {
+        background-color: $primary-color;
+        color: $white;
+        border-color: $white;
+
+        &:hover,
+        &:focus {
+            background-color: $white;
+            color: $primary-color !important;
+            border-color: $primary-color;
+        }
+
+        &-primary {
+            background-color: $primary-color;
+            color: $white;
+            border-color: $primary-color;
+
+            &:hover,
+            &:focus {
+                background-color: get-color(secondary);
+                color: $white !important;
+                border-color: get-color(secondary);
+            }
+        }
+
+        &-white {
+            background-color: $white;
+            color: $primary-color;
+            border-color: $white;
+
+            &:hover,
+            &:focus {
+                background-color: $primary-color;
+                color: $white !important;
+                border-color: $white;
+            }
+        }
+    }
+
+    &-br {
+        &-white {
+            color: $white;
+            border-color: $white;
+
+            &:hover,
+            &:focus {
+                background-color: $white;
+                color: $primary-color !important;
+                border-color: $white;
+            }
+        }
+    }
+}
+
+
+.cs-radio-checkbox {
+    input[type="radio"],
+    input[type="checkbox"] {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        margin-right: clamp(rem-calc(15),0.781vw,0.781vw);
+        
+        font: inherit;
+        color: currentColor;
+        width: clamp(rem-calc(21),1.563vw,1.563vw);
+        height: clamp(rem-calc(21),1.563vw,1.563vw);
+        border-style: solid;
+        border-width: clamp(rem-calc(1), 0.156vw, 0.156vw);
+        border-color: $white;
+        border-radius: 100%;
+        // transform: translateY(-0.075em);
+        
+        display: inline-grid;
+        place-content: center;
+    }
+    input[type="checkbox"],
+    input[type="checkbox"]::before {
+        border-radius: 0 !important;
+    }
+      
+    input[type="radio"]::before,
+    input[type="checkbox"]::before {
+        content: "";
+        width: clamp(rem-calc(21),1.563vw,1.563vw);
+        height: clamp(rem-calc(21),1.563vw,1.563vw);
+        border-radius: 100%;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        /* Windows High Contrast Mode */
+        background-color: $white;
+    }
+      
+    input[type="radio"]:checked::before,
+    input[type="checkbox"]:checked::before {
+        transform: scale(1);
+    }
+}
+
+.js-off-canvas-overlay {
+    background-color: rgba($primary-color, .75);
+}
+
+.reveal {
+    &-bg {
+        &--none {
+            background: none;
+
+            @include breakpoint(large down) {
+                min-width: 80%;
+            }
+            
+            @include breakpoint(msmall down) {
+                padding-top: 35%;
+            }
+
+            .close-button {
+                // right: 0;
+                // top: rem-calc(-8);
+
+                @include breakpoint(medium down) {
+                    right: 1rem;
+                    top: 2rem
+                }
+                @include breakpoint(large up) {
+                    right: 0;
+                    top: rem-calc(-7);
+                }
+            }
+        }
+    }
+    &-md {
+        @include breakpoint(msmall down) {
+            top: rem-calc(155);
+            bottom: rem-calc(28);
+            padding: rem-calc(25 20);
+        }
+    
+    
+        .reveal {
+            @include breakpoint(msmall down) {
+                top: 0 !important;
+            }
+    
+            @include breakpoint(medium only) {
+                width: 60%;
+            }
+        }
+    }
+}
+
+.hideItem select option:nth-child(2) {
+    display: none;
+    opacity: 0;
+}
+
+

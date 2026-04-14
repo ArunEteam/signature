@@ -1,0 +1,236 @@
+&-enq {
+    // height: 100%;
+    
+
+    @include breakpoint(msmall down) {
+        background-color: $white;
+        height: 100vh;
+    }
+
+    @include breakpoint(medium up) {
+        background-color: $leaf;
+        height: fit-content;
+    }
+
+    &--bg {
+        @include breakpoint(msmall down) {
+            background-color: rgba($leaf, .4);
+        }
+    }
+
+    &__back {
+        position: absolute;
+        top: rem-calc(65);
+        left: 6.25%;
+        color: $primary-color;
+        display: inline-block;
+        cursor: pointer;
+
+        svg {
+            transform: rotate(180deg);
+            height: rem-calc(13);
+            fill: $primary-color;
+            margin-right: rem-calc(5);
+        }
+    }
+
+    &__list {
+        background: none;
+        @include flex;
+        @include flex-align(center, middle);
+        flex-flow: column;
+        height: 100%;
+        list-style: none;
+
+        @include breakpoint(msmall down) {
+            list-style: none;
+            margin: 0;
+        }
+
+        @include breakpoint(medium only) {
+            margin-right: 10.5%;
+            margin-left: 0;
+        }
+        
+        @include breakpoint(large only) {
+            margin-right: 12.5%;
+        }
+    }
+
+    &__btn {
+        max-width: clamp(rem-calc(290), 15.104vw, 15.104vw);
+        width: 100% !important;
+
+        a {
+            font-size: clamp(rem-calc(17), 0.885vw, 0.885vw);
+            height: clamp(rem-calc(45), 2.344vw, 2.344vw);
+            width: 100%;
+            border: rem-calc(1) solid $white;
+            color: $white;
+            text-transform: uppercase;
+            @include flex;
+            @include flex-align(center, middle);
+            font-weight: 400;
+            margin-bottom: clamp(rem-calc(35), 1.823vw, 1.823vw);
+            transition: all .25s ease-out;
+
+            border-radius: rem-calc(100);
+
+            @include breakpoint(msmall down) {
+                background-color: $white;
+                color: $primary-color;
+            }
+
+            @include breakpoint(medium only) {
+                font-size: rem-calc(16);
+            }
+
+            &.is-active,
+            &:hover,
+            &:focus {
+                color: $primary-color;
+                background-color: $white;
+
+                @include breakpoint(msmall down) {
+                    background-color: $primary-color;
+                    color: $white;
+                }
+            }
+        }
+
+        a:focus, 
+        a[aria-selected='true'] {
+            @include breakpoint(msmall down) {
+                background-color: $white;
+                color: $primary-color;
+            }
+
+            @include breakpoint(medium up) {
+                background: $white;
+            }
+
+            &:hover {
+                @include breakpoint(msmall down) {
+                    background-color: $primary-color;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    &__content {
+        height: fit-content;
+        @extend .clr-white;
+
+        @include breakpoint(msmall down) {
+            display: none;
+        }
+
+        @include breakpoint(medium up) {
+            min-height: 0;
+            min-width: 0;
+            flex: 1 1 0;
+            width: auto;
+        }
+
+        &--bg {
+            // height: fit-content;
+            @extend .clr-leaf-bglt;
+            height: 100vh;
+        }
+
+        &--show {
+            @include breakpoint(msmall down) {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 0;
+                width: 100%;
+            }    
+        }
+
+        &-wrap {
+            width: 100%;
+            height: 100%;
+
+            @include breakpoint(large down) {
+                overflow: scroll;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                padding-bottom: rem-calc(35);
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            @include breakpoint(xlarge up) {
+                @include flex;
+                @include flex-align(center, middle);
+            }
+
+            & > .grid-x {
+                width: 100%;
+            }
+
+            .cs-radio-checkbox { 
+                input[type="checkbox"] {
+                    border-color: $primary-color;
+                }
+
+                input[type="checkbox"]::before {
+                    @extend .clr-lake;
+                }
+            }
+        }
+
+        .tabs-panel {
+            height: 100%;
+
+            @include breakpoint(large down) {
+                padding-top: rem-calc(50);
+                padding-bottom: rem-calc(50);
+            }
+
+            @include breakpoint(msmall down) {
+                padding-top: rem-calc(100);
+            }
+
+            @include breakpoint(xlarge up) {
+                padding-top: clamp(rem-calc(80), 4.427vw, 4.427vw);
+                padding-bottom: clamp(rem-calc(80), 4.427vw, 4.427vw);
+            }
+            
+            .gform_button {
+                @include breakpoint(msmall down) {
+                    width: 100%;
+                }
+                @include breakpoint(medium up) {
+                    color: $primary-color;
+                    border: rem-calc(1) solid $primary-color;
+                    background-color: transparent;
+
+                    &:hover {
+                        background-color: $primary-color;
+                        color: $white !important;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    &__info {
+        font-size: clamp(rem-calc(16), 1.042vw, 1.042vw);
+        color: $primary-color;
+        font-weight: 500;
+    }
+
+    &__title {
+        line-height: 1.2;
+        @include breakpoint(large down) {
+            margin-bottom: rem-calc(35);
+        }
+    }
+}

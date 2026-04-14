@@ -1,0 +1,26 @@
+.logo {
+    position: relative;
+    isolation: isolate;
+
+    &-white,
+    &-default {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &::before {
+            content: url('../images/icon-tavistockbow.svg');
+            width: clamp(rem-calc(50), 3.906vw, 3.906vw);
+            height: 50%;
+            position: absolute;
+            top: 0;
+            padding-top: 2.604vw;
+            z-index: 11;
+            text-align: center;
+        }
+    }
+
+    &-white:before {
+        filter: grayscale(1) invert(1) brightness(3);
+    }
+}

@@ -1,0 +1,48 @@
+.prop {
+    &-rightcol {
+        @include breakpoint(large up) {
+            max-width: calc(100vw - 300px);
+        }
+        @include breakpoint(xxlarge up) {
+            max-width: calc(100vw - 375px);
+        }
+    }
+    &-leftcol {
+        @include breakpoint(large up) {
+            max-width: 40vw;
+            // max-height: 100%;
+            min-width: rem-calc(300);
+
+            
+            &--title {
+                font-size: clamp(rem-calc(20), 1.458vw, 1.458vw);
+            }
+
+            &--amount {
+                font-size: clamp(rem-calc(22), 1.458vw, 1.458vw);
+            }
+
+            &__item {
+                padding-right: 0;
+            }
+
+            .prop-detail__action li {
+                text-align: left;
+                
+                a.button {
+                    font-size: clamp(rem-calc(16),1.042vw, 1.042vw);           
+                }
+            }
+
+            & > .sticky-container {
+                width: inherit;
+            }
+        }
+
+        @include breakpoint(xxlarge up) {
+            min-width: rem-calc(375);
+        }
+        
+    }
+}
+

@@ -1,0 +1,27 @@
+.nl {
+
+    &-wrap {
+        padding: clamp(rem-calc(15), 2.604vw, 2.604vw);
+
+        @include breakpoint(msmall down) {
+            padding-top: rem-calc(60);
+        }
+
+        &--overlap {
+            @include breakpoint(msmall down) {
+                z-index: 1002;
+            }
+        }
+    }
+
+    &-btnclose {
+        cursor: pointer;
+        position: absolute;
+        right: clamp(rem-calc(10), 0.781vw, 0.781vw);
+        top: clamp(rem-calc(10), 0.781vw, 0.781vw);
+
+        @include breakpoint(msmall down) {
+            top: rem-calc(30);
+        }
+    }
+}

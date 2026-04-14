@@ -1,0 +1,76 @@
+// .anim-title-left,
+// .cm-sec > h2,
+// .cm-sec h1,
+// .cm-title {
+//     position: relative;
+//     left: clamp(rem-calc(15), 0.781vw, 0.781vw);
+//     opacity: 0;
+//     transition: opacity .75s ease-in, left .75s ease-in,;
+
+//     &.animate {
+//         left: 0;
+//         opacity: 1;
+//     }
+// }
+
+// [data-aos="fade-left"],
+// [data-aos="fade-right"] {
+//     transform: translateZ(50px);
+// }
+
+// [data-aos="fade-up"]  {
+//     transform: translateZ(50px);
+// }
+
+
+@keyframes fadeRight {
+    from {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(50px);
+        opacity: 1;
+    }
+}
+.fadeRight {
+    animation: fadeUp .5s forwards;
+
+    @include breakpoint(medium up) {
+        animation: fadeRight 1s forwards;
+    }
+}
+@keyframes fadeLeft {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+.fadeLeft {
+    animation: fadeUp .5s forwards;
+
+    @include breakpoint(medium up) {
+        animation: fadeLeft 1s forwards;
+    }
+}
+@keyframes fadeUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+.fadeUp {
+    animation: fadeUp .5s forwards;
+
+    @include breakpoint(medium up) {
+        animation: fadeUp 1s forwards;
+    }
+}

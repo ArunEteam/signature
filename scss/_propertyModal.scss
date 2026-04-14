@@ -1,0 +1,78 @@
+&-md {
+    &__auto {
+        max-height: clamp(100%, 25.781vw, 25.781vw);
+        height: 100%;
+        @include flex;
+        @include flex-align(center, middle);
+        flex-flow: column;
+        padding-top: clamp(rem-calc(50), 2.604vw, 2.604vw);
+        padding-bottom: clamp(rem-calc(50), 2.604vw, 2.604vw);
+        padding-left: clamp(rem-calc(20), 1.042vw, 1.042vw);
+        padding-right: clamp(rem-calc(20), 1.042vw, 1.042vw);
+        text-align: center;
+
+        @include breakpoint(medium up) {
+            min-height: clamp(rem-calc(400), 25.781vw, 25.781vw);
+            padding: clamp(rem-calc(50), 2.604vw, 2.604vw);
+        }
+
+        p {
+            margin-top: clamp(rem-calc(25), 1.302vw, 1.302vw);
+        }
+
+        &--reveal {
+            @include breakpoint(medium only) {
+                min-width: 60%;
+            }
+        }
+
+        &-list {
+            margin-top: clamp(rem-calc(18), 2.604vw, 2.604vw);
+
+            li {
+                text-align: center;
+                margin-bottom: clamp(rem-calc(18), 2.083vw, 2.083vw);
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                a {
+                    color: $primary-color;
+                    text-decoration: underline;
+                    text-decoration-thickness: rem-calc(1);
+                    text-underline-offset: rem-calc(3);
+                }
+            }
+        }
+    }
+
+    &__media {
+        @include flex;
+        @include flex-align(center, middle);
+        height: 100%;
+
+        & > .menu {
+            height: auto;
+
+            @include breakpoint(medium down) {
+                justify-content: flex-start;
+                width: 100%;
+            }
+
+            @include breakpoint(large up) {
+                justify-content: center;
+            }
+        }
+
+        li {
+            @include breakpoint(medium down) {
+                margin: rem-calc(15 0);
+            }
+
+            @include breakpoint(large up) {
+                margin: rem-calc(15);
+            }
+        }
+    }
+}

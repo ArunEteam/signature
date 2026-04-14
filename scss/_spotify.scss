@@ -1,0 +1,83 @@
+.spotify {
+    &-wrap {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        // height: auto;
+        overflow: hidden;
+
+        @include breakpoint(msmall down) {
+            // top: rem-calc(120);
+            height: calc(100% - 120px);
+        }
+
+        @include breakpoint(medium up) {
+            bottom: 0;
+            height: auto;
+        }
+
+        // width: 100%;
+
+        // @include breakpoint(medium up) {
+        //     max-width: calc(6.25% * 12 - 2.5px);
+        // }
+
+        // @include breakpoint(xlarge up) {
+        //     max-width: calc(6.25% * 8 - 10.5px);
+        // }
+    }
+
+    &-grid {
+        @include breakpoint(msmall down) {
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    }
+
+    &--cell {
+        @include breakpoint(msmall down) {
+            margin: 0 auto;
+        }
+    }
+
+    &-content {
+        position: relative;
+        isolation: isolate;
+        height: 100%;
+
+        @include flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        @include breakpoint(medium up) {
+            min-height: rem-calc(465);
+
+            &:before {
+                content: '';
+                width: 150%;
+                height: 100%;
+                background-color: $white;
+                z-index: -1;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+
+        @media screen and (min-height: 320px) and (max-height: 465px) {
+            min-height: 100vh;
+        }
+
+        p {
+            margin-top: clamp(rem-calc(20), 1.563vw, 1.563vw);
+            margin-bottom: clamp(rem-calc(20), 1.563vw, 1.563vw);
+        }
+    }
+
+    &-title {
+        font-size: clamp(rem-calc(36), 3.125vw, 3.125vw);
+        @extend .clr-navy-txt;
+    }
+}

@@ -1,0 +1,185 @@
+.ls {
+    &-title {
+        font-family: $dm;
+        font-size: clamp(rem-calc(20), 1.875vw, 1.875vw);
+        // margin-top: clamp(rem-calc(35),5.208vw,5.208vw);
+        // margin-bottom: clamp(rem-calc(25),3.906vw,3.906vw);
+        margin-top: clamp(rem-calc(25), 1.302vw, 1.302vw);
+        margin-bottom: clamp(rem-calc(25), 1.302vw, 1.302vw);
+    }
+
+    &-subtitle {
+        font-family: $dm;
+        font-size: clamp(rem-calc(20), 1.354vw, 1.354vw);
+        margin-bottom: clamp(rem-calc(15),0.781vw,0.781vw);
+    }
+
+    &-contact {
+        &--align {
+            min-height: rem-calc(200);
+            width: 100%;
+            display: inline-flex;
+            flex-flow: column;
+            justify-content: space-between;
+        }
+    }
+
+    &-info {
+        background-color: rgba(get-color(secondary), .2);
+
+        &__col {
+            padding-top: clamp(rem-calc(55),2.865vw,2.865vw);
+            padding-bottom: clamp(rem-calc(70),3.906vw,3.906vw);
+            position: relative;
+            isolation: isolate;
+
+            @include breakpoint(msmall down) {
+                padding-left: 6.25%;
+                padding-right: 6.25%;
+            }
+            @include breakpoint(medium only) {
+                padding-left: calc(6.25% * 3);
+            }
+
+            @include breakpoint(large up) {
+                padding-left: calc(6.25% * 2);
+            }
+
+            p {
+                font-size: clamp(rem-calc(16), 1.042vw, 1.042vw);
+                margin-bottom: 0;
+            }
+
+            &--fade {
+                opacity: .6;
+            }
+        }
+
+        // &__sales {
+        // }
+
+        &__letting {
+            background-color: rgba(get-color(secondary), .2);
+
+            @include breakpoint(large only) {
+                padding-left: 6.25%;
+            }
+        }
+    }
+
+    &-options {
+        padding-top: clamp(rem-calc(25),1.302vw,1.302vw);
+        margin-top: 1rem;
+
+        @extend .cs-radio-checkbox;
+
+        // min-height: clamp(rem-calc(228), 11.875vw, 11.875vw);
+
+        @include breakpoint(msmall down) {
+            margin-bottom: rem-calc(35);
+        }
+
+        @include breakpoint(medium up) {
+            margin-right: clamp(rem-calc(60), 9.375vw, 9.375vw);
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            border-color: get-color(secondary);
+        }
+        input[type="radio"]::before,
+        input[type="checkbox"]::before {
+            background-color: get-color(secondary);
+        }
+
+        p {
+            margin-top: clamp(rem-calc(25), 1.563vw, 1.563vw);
+        }
+
+        .gfield_description {
+            top: calc(100% - 25px) !important;
+        }
+
+        &--list {
+            @include breakpoint(medium up) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+
+        li {
+            @include breakpoint(msmall down) {
+                margin-bottom: rem-calc(15);
+            }
+
+            @include breakpoint(medium up) {
+                margin-bottom: clamp(rem-calc(20), 1.042vw, 1.042vw);
+            }
+
+            label {
+                font-size: clamp(rem-calc(16), 1.042vw, 1.042vw);
+                color: $primary-color;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        input[type="submit"] {
+            // display: none;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            font-size: 0;
+            line-height: 0;
+        }
+
+        .gform_fields {
+            @include breakpoint(medium up) {
+                padding-top: clamp(rem-calc(25), 1.563vw, 1.563vw);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-column-gap: clamp(rem-calc(25), 1.563vw, 1.563vw);
+
+                //.gfield:last-child
+                .gfield {
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+                    // grid-row-start: 1;
+                    // grid-row-end: 2;
+
+                    .ginput_container--name {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-column-gap: clamp(rem-calc(25), 1.563vw, 1.563vw);
+                    }
+                }
+            }
+        }
+        
+    }
+
+    &-action {
+        list-style: none;
+        margin: 0;
+        @include flex;
+        @include flex-align(left, middle);
+        flex-flow: row;
+
+        li {
+            margin-right: clamp(rem-calc(20), 3.125vw, 3.125vw);
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &__link {
+            color: $primary-color;
+            text-decoration: underline;
+            text-underline-offset: rem-calc(5);
+            font-weight: 100;
+            cursor: pointer;
+        }
+    }
+}

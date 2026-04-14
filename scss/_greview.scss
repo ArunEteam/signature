@@ -1,0 +1,29 @@
+.greview {
+    .ti-review-text {
+        @extend .testimonial-list__info;
+        color: $primary-color !important;
+        font-size: clamp(1rem, 1.042vw, 1.042vw) !important;
+        color: $primary-color !important;
+        line-height: 1.4 !important;
+        font-weight: 300 !important;
+    }
+
+    [data-initial-height] {
+        height: auto !important;
+    }
+
+    .ti-read-more-active {
+        @extend .morelink;
+    }
+
+    .ti-review-header::before {
+        display: none;
+    }
+
+    .ti-name {
+        font-family: "DM Serif Display", serif !important;
+        color: $primary-color !important;
+        font-size: clamp(1.625rem, 1.354vw, 1.354vw) !important;
+        font-weight: 300 !important;
+    }
+}

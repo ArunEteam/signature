@@ -1,10 +1,8 @@
-@charset 'utf-8';
-
-
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
 
+.acf-block-preview {
 // Global styles
 @include foundation-global-styles;
 @include foundation-forms;
@@ -30,7 +28,7 @@
 //@include foundation-breadcrumbs;
 //@include foundation-callout;
 //@include foundation-card;
-// @include foundation-dropdown;
+//@include foundation-dropdown;
 //@include foundation-pagination;
 //@include foundation-tooltip;
 
@@ -38,20 +36,20 @@
 @include foundation-accordion;
 //@include foundation-media-object;
 //@include foundation-orbit;
-@include foundation-responsive-embed;
+//@include foundation-responsive-embed;
 @include foundation-tabs;
 //@include foundation-thumbnail;
 // Menu-based containers
 @include foundation-menu;
 //@include foundation-menu-icon;
-@include foundation-accordion-menu;
+//@include foundation-accordion-menu;
 //@include foundation-drilldown-menu;
-@include foundation-dropdown-menu;
+//@include foundation-dropdown-menu;
 
 // Layout components
 @include foundation-off-canvas;
-@include foundation-reveal;
-@include foundation-sticky;
+//@include foundation-reveal;
+//@include foundation-sticky;
 //@include foundation-title-bar;
 //@include foundation-top-bar;
 
@@ -65,51 +63,40 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-// @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto:wght@300;400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto:wght@300;400;500;700&display=swap');
 $topmargin: 120px;
-.hidvis {
-    visibility: hidden;
-}
-strong, b {
-    font-weight: 300 !important;
-}
-
-@import 'aos';
 
 @import 'modify';
-@import 'nav';
-@import 'menu';
-@import 'spotify';
+// @import 'nav';
+// @import 'menu';
+// @import 'spotify';
 @import 'contact';
 @import 'selectoption';
-@import 'customdropdown';
-@import 'buysell';
-@import 'letsell';
-@import 'footer';
-@import 'form';
+// @import 'buysell';
+// @import 'letsell';
+// @import 'footer';
+//@import 'form';
 
 @import 'cm';
 
+@import 'slick';
+@import 'slick-theme';
 
 @import 'home';
-@import 'sliders';
 @import 'property';
 @import 'testimonial';
 @import 'journal';
 @import 'people';
-
-@import 'propcustom';
-@import 'newsletter';
-@import 'animate';
-
-@import 'slick';
-@import 'slick-theme';
-@import 'splideslider';
-
-@import 'greview';
+// @import 'wp';
 
 @import 'color';
-@import 'wp';
-// @import 'logo';
+
+}
+/** START editor styling **/
+.wp-block{
+    max-width: 100%;
+}
+.wp-block[data-align=wide] { /* it can be "data-align=full" and also "right", "left" and "center" */
+    max-width: 100%;
+}
 
